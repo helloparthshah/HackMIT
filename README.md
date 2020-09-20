@@ -1,3 +1,73 @@
+<h1 align="center">
+  <br>
+  <img src="https://github.com/akashnimare/foco/blob/master/app/img/foco.png" alt="Foco" width="160">
+</h1>
+
+<h4 align="center"> Bridging the chasm between two worlds</h4>
+
+Currently, about 600,000 people in the United States have some form of hearing impairment. Through personal experiences, we understand the guidance necessary to communicate with a person through ASL. Our software eliminates this and promotes a more connected community - one with a lower barrier entry for sign language users.
+
+Our web-based project detects signs using the live feed from the camera and features like autocorrect and autocomplete reduce the communication time so that the focus is more on communication rather than the modes. Furthermore, the Learn feature enables users to explore and improve their sign language skills in a fun and engaging way. Because of limited time and computing power, we chose to train an ML model on ASL, one of the most popular sign languages - but the extrapolation to other sign languages is easily achievable.
+
+With an extrapolated model, this could be a huge step towards bridging the chasm between the worlds of sign and spoken languages.
+
+# Demo
+👉 Watch it <a href="https://www.youtube.com/watch?v=6SG2Mjpv8YE">here</a>.
+<br>
+
+[![Watch demo](https://cloud.githubusercontent.com/assets/2263909/18597112/0622a3b0-7c6a-11e6-897d-13f0aa36b6e4.png)](https://www.youtube.com/watch?v=6SG2Mjpv8YE)
+
+<img src="https://j.gifs.com/BBqE8Y.gif">
+
+## Installation
+Clone the source locally:
+
+```sh
+$ git clone https://github.com/helloparthshah/HackMIT
+$ cd HackMIT
+$ cd Flask
+```
+You'll also need to install
+`flask`:
+
+Use your package manager to install `flask`.
+
+```sh
+$ pip3 install flask
+```
+
+Install project dependencies:
+
+```sh
+$ pip3 install tensorflow
+$ pip3 install keras
+$ pip3 install opencv-python
+$ pip3 install autocomplete
+```
+Start the app:
+
+```sh
+$ python3 server.py
+```
+
+### Build Flutter version
+```sh
+$ cd asl
+$ flutter build apk
+```
+
+## Features
+
+- [x] Offline support
+- [x] Cross-platform
+- [x] Awesome sounds
+- [x] No singup/login required
+- [ ] Auto launch
+- [ ] Auto updates
+
+## Built with
+- [Electron](https://electron.atom.io)
+- [Menubar](https://github.com/maxogden/menubar)
 ## What it does
 Our model converts American Sign Language Alphabet to English alphabet through a live video feed. Once a word is formed, if there is a typo, the model autocorrects it to the right word.
 ## How we built it
@@ -8,4 +78,7 @@ One of the biggest challenges we had to overcome was the integration of our mach
 We are proud that we were able to train an accurate model to predict the letters and words in a small amount of time and we hope to incorporate sentence prediction soon to our application.
 ## What's next for ASL
 In the future, we want to expand this to predict and autocomplete sentences based on just a few words. Implementing that would require training a model with huge amounts of data for each word. 
-# HackMIT
+
+## License
+
+MIT  © [Parth Shah](http://parthshah.tech)
