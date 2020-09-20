@@ -4,7 +4,7 @@
     <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
     <title>Video Streaming Demonstration</title>
     <style>
-       .open-button {
+        .open-button {
             text-align: center;
             /*background-color: #FF6CAB;*/
             text-decoration: none;
@@ -13,23 +13,24 @@
             outline: none;
             cursor: pointer;
             margin: 15px;
-            width: 165px; 
+            width: 165px;
             color: #551A8B !important;
             font-size: 17px;
-			text-transform: uppercase;
-			background: #ffffff;
+            text-transform: uppercase;
+            background: #ffffff;
             padding: 14px 16px;
-			border: 4px solid #551A8B !important;
-			border-radius: 6px;
-			display: inline-block;
-			transition: all 0.3s ease 0s;
+            border: 4px solid #551A8B !important;
+            border-radius: 6px;
+            display: inline-block;
+            transition: all 0.3s ease 0s;
         }
         
         .open-button:hover {
-			color: #494949 !important;
-			border-radius: 50px;
-			border-color: #B19CD9 !important;
-			transition: all 0.3s ease 0s;        }
+            color: #494949 !important;
+            border-radius: 50px;
+            border-color: #B19CD9 !important;
+            transition: all 0.3s ease 0s;
+        }
         
         .tab {
             overflow: hidden;
@@ -37,38 +38,39 @@
             margin: 0px;
             text-align: center;
         }
+        
         .title {
-        	width: 97%;
+            width: 97%;
             color: #551A8B !important;
             font-size: 23px;
-			text-transform: uppercase;
-			background: #ffffff;
+            text-transform: uppercase;
+            background: #ffffff;
             padding: 14px 16px;
-			border: 4px solid #551A8B !important;
-			border-radius: 6px;
-			display: inline-block;
-			transition: all 0.3s ease 0s;
-			text-align: center;
+            border: 4px solid #551A8B !important;
+            border-radius: 6px;
+            display: inline-block;
+            transition: all 0.3s ease 0s;
+            text-align: center;
         }
-        .tab button {
         
+        .tab button {
             width: 100%;
             color: #551A8B !important;
             font-size: 17px;
-			text-transform: uppercase;
-			background: #ffffff;
+            text-transform: uppercase;
+            background: #ffffff;
             padding: 14px 16px;
-			border: 4px solid #551A8B !important;
-			border-radius: 6px;
-			display: inline-block;
-			transition: all 0.3s ease 0s;
+            border: 4px solid #551A8B !important;
+            border-radius: 6px;
+            display: inline-block;
+            transition: all 0.3s ease 0s;
         }
         
         .tab button:hover {
             color: #494949 !important;
-			border-radius: 50px;
-			border-color: #B19CD9 !important;
-			transition: all 0.3s ease 0s;
+            border-radius: 50px;
+            border-color: #B19CD9 !important;
+            transition: all 0.3s ease 0s;
         }
         /* Create an active/current tablink class */
         
@@ -76,13 +78,12 @@
             background-color: #000000;
         }
         /* Style the tab content */
-        
     </style>
 
 </head>
 
 <body style="background-image:linear-gradient(to bottom right, #64E8DE, #8A64EB)">
-	<h1 class="title">Autocomplete Sign Language</h1>
+    <h1 class="title">Autocomplete Sign Language</h1>
 
     <section id="nbr" style="display:show;text-align:justify" class="navbar">
 
@@ -99,10 +100,10 @@
             <div style="transition: 0.3s; width: 500px; height: 100px; border-radius: 10px; border: none; font-family:Roboto; border: 3px solid #551A8B;font-size: 20px; " id='letter'>
                 <h1 style="transition: 0.3s;" id='curr'></h1>
             </div>
-           
+
             <div>
                 <button class="open-button" onclick="play()" id="play">Play/Pause</button>
-        
+
                 <button class="open-button" onclick="getrand()">Get New</button>
             </div>
         </div>
@@ -119,10 +120,6 @@
                 .then(response => {
                     response.text().then(t => {
                         if (flag == true) {
-
-                            if (t == 'Space') {
-                                t = ' '
-                            }
                             if (t == current) {
                                 correct();
                             }
@@ -152,14 +149,14 @@
         }
 
         function play() {
-            flag = !flag            
-            if(flag == true){                
-            document.getElementById('letter').style.backgroundColor = 'white'                
-            document.getElementById('play').innerHTML = 'PAUSE';            
-            } else {                
-            document.getElementById('letter').style.backgroundColor = '#BFE6FF'                
-            document.getElementById('play').innerHTML = 'PLAY';           
-            }            // flag = true
+            flag = !flag
+            if (flag == true) {
+                document.getElementById('letter').style.backgroundColor = 'white'
+                document.getElementById('play').innerHTML = 'PAUSE';
+            } else {
+                document.getElementById('letter').style.backgroundColor = '#BFE6FF'
+                document.getElementById('play').innerHTML = 'PLAY';
+            } // flag = true
         }
 
         function pause() {
