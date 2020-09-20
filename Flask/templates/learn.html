@@ -114,7 +114,8 @@
         var letter = document.getElementById("curr");
         var flag = true
         var current = '';
-        var time = 5;
+        var maxt = 10;
+        var time = maxt;
         var score = 0;
         setTime();
 
@@ -153,7 +154,7 @@
         }, 1000);
 
         async function correct() {
-            time = 5;
+            time = maxt;
             letter.style.color = 'green';
             setTimeout(function() {
                 letter.style.color = 'black';
@@ -175,7 +176,7 @@
         function play() {
             flag = !flag
             if (flag == true) {
-                time = 5;
+                time = maxt;
                 setTime();
                 score = 0;
                 document.getElementById('score').innerHTML = 'Score: ' + score;
