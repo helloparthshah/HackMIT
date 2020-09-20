@@ -4,6 +4,16 @@
     <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
     <title>Video Streaming Demonstration</title>
     <style>
+        body {
+            padding: 0;
+            margin: 0;
+            width: 100vw;
+            /* box-sizing: border-box; */
+            overflow-x: hidden;
+            font-family: 'Roboto', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
         .open-button {
             text-align: center;
             /*background-color: #FF6CAB;*/
@@ -77,12 +87,44 @@
         .tab button.active {
             background-color: #000000;
         }
-        /* Style the tab content */
+        
+        #over {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            background-color: rgba(0, 0, 0, 40%);
+        }
+        
+        #over div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            background-color: white;
+            width: 80vw;
+            height: 80vh;
+            border-radius: 10px;
+            border: none;
+            border: 3px solid #551A8B;
+            font-size: 20px;
+        }
     </style>
 
 </head>
 
 <body style="background-image:linear-gradient(to bottom right, #64E8DE, #8A64EB)">
+    <div style="display: none;" id='over'>
+        <div>
+            <h1>Game Over!</h1>
+            <h1 id='test'></h1>
+            <img style="height: 400px;" id='im'>
+            <h1 id='os'></h1>
+            <button class="open-button" onclick="restart()" id="back">Restart</button>
+        </div>
+    </div>
     <h1 class="title">Autocomplete Sign Language</h1>
 
     <section id="nbr" style="display:show;text-align:justify" class="navbar">
@@ -92,10 +134,9 @@
         </div>
 
     </section>
-
     <div id="Video" class="tabcontent" style="text-align:center">
         <h1></h1>
-        <img id="bg" src="/vid" width="50%">
+        <img id="bg" src="/vid" width="40%">
         <h1 style="transition: 0.3s;" id='time'></h1>
         <h1 style="transition: 0.3s;" id='score'>Score: 0</h1>
         <div style="padding-top: 30px; display: flex; flex-direction: column; align-items: center;">
@@ -118,12 +159,25 @@
         var time = maxt;
         var score = 0;
         setTime();
+        getrand();
+        play();
 
         function setTime() {
             document.getElementById('time').innerHTML = 'Time: ' + time;
         }
-        getrand();
-        play();
+
+        function restart() {
+            document.getElementById('over').style.display = 'none';
+        }
+
+        function gameover() {
+            play();
+            // alert('Game over, you scored ' + score);
+            document.getElementById('im').src = 'https://lingojam.com/img/ASL_signs/' + current.toLowerCase() + '.png'
+            document.getElementById('over').style.display = 'flex';
+            document.getElementById('test').innerHTML = 'Letter was ' + current;
+            document.getElementById('os').innerHTML = 'Score: ' + score;
+        }
 
         setInterval(() => {
             if (flag) {
@@ -131,8 +185,8 @@
                 if (time >= 0) {
                     setTime();
                 } else {
-                    play();
-                    alert('Game over, you scored ' + score);
+                    gameover();
+
                 }
             }
         }, 1000);
